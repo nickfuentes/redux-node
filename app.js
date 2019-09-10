@@ -26,6 +26,12 @@ const reducer = (state = initialState, action) => {
             ...state,
             counter: state.counter + action.value
         }
+    } else if (action.type == "IS_LOGGED_IN") {
+        return {
+            ...state,
+            isLoggedIn: state.isLoggedIn = true
+        }
+
     }
     return state
 }
@@ -48,3 +54,9 @@ store.dispatch({
     type: "DECRE_COUNTER"
 })
 console.log(store.getState(), "DEC")
+
+store.dispatch({
+    type: "IS_LOGGED_IN"
+})
+
+console.log(store.getState(), "LOGGEDIN")
