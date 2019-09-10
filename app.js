@@ -26,6 +26,11 @@ const reducer = (state = initialState, action) => {
             ...state,
             counter: state.counter + action.value
         }
+    } else if (action.type == "SUBTRACT_CONTER") {
+        return {
+            ...state,
+            counter: state.counter - action.value
+        }
     } else if (action.type == "IS_LOGGED_IN") {
         return {
             ...state,
@@ -40,21 +45,30 @@ const reducer = (state = initialState, action) => {
 const store = createStore(reducer)
 
 
-// Dispatch Actions
+// INCRE Counter
 store.dispatch({
     type: "INC_COUNTER"
 })
 console.log(store.getState(), "INC")
 
-// // Incremented the state by 50
-// store.dispatch({ type: 'ADD_COUNTER', value: 50 })
-// console.log(store.getState(), "Add")
-
+// DECRE Counter
 store.dispatch({
     type: "DECRE_COUNTER"
 })
 console.log(store.getState(), "DEC")
 
+// ADD 50 to counter
+store.dispatch({ type: 'ADD_COUNTER', value: 50 })
+console.log(store.getState(), "Add")
+
+// SUBTRACT 25 to counter
+store.dispatch({
+    type: "SUBTRACT_CONTER",
+    value: 25
+})
+console.log(store.getState(), "SUBTRACT")
+
+// ISLOGGIN to true
 store.dispatch({
     type: "IS_LOGGED_IN"
 })
