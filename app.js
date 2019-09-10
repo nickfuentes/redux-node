@@ -3,7 +3,8 @@ const createStore = redux.createStore
 
 // This is the intial state
 const initialState = {
-    counter: 0
+    counter: 0,
+    isLoggedIn: false
 }
 
 // Create Reducer
