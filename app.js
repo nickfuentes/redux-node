@@ -9,6 +9,13 @@ const initialState = {
 // Create Reducer
 const reducer = (state = initialState, action) => {
     console.log(action.type)
+    if (action.type == "INC_COUNTER") {
+        return {
+            ...state, // copy the old state
+            counter: state.counter + 1
+        }
+    }
+    return state
 }
 
 // Create Store
